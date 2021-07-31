@@ -49,3 +49,9 @@ function Home() {
         console.log(value);
         setdrinkSearch("")
       }
+
+    const handleInputChange = (event) => {
+        const { value } = event.target;
+        setdrinkSearch(value);
+        console.log(drinkSearch);
+      }

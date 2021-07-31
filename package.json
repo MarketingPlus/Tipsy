@@ -1,40 +1,39 @@
 {
-    "name": "tipsy",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "dependencies": {
-      "bcryptjs": "^2.4.3",
-      "concurrently": "^6.0.0",
-      "dotenv": "^8.2.0",
-      "express": "^4.17.1",
-      "fastest-validator": "^1.10.1",
-      "if-env": "^1.0.4",
-      "mongoose": "^5.12.2",
-      "passport": "^0.4.1",
-      "passport-jwt": "^4.0.0",
-      "react-dotenv": "^0.1.3"
-    },
-    "devDependencies": {},
-    "scripts": {
-      "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-      "start:prod": "node server.js",
-      "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-      "client": "cd client && npm run start",
-      "install": "cd client && npm install",
-      "build": "cd client && npm run build",
-      "heroku-postbuild": "npm run build"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/MarketingPlus/Tipsy.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/MarketingPlus/Tipsy/issues"
-    },
-    "homepage": "https://github.com/MarketingPlus/Tipsy#readme"
-  }
-  
+  "name": "tipsy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^6.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fastest-validator": "^1.10.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.12.2",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "react-dotenv": "^0.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarketingPlus/Tipsy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarketingPlus/Tipsy/issues"
+  },
+  "homepage": "https://github.com/MarketingPlus/Tipsy#readme"
+}

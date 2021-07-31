@@ -107,3 +107,19 @@ export const useAuthTokenStore = () => {
     return isDone;
 
 }
+
+export const useIsAuthenticated = () => {
+
+    const [ { userAuth: { token } } ] = useStoreContext();
+
+    return token && token.exp > Date.now() / 1000;
+
+}
+
+export const useAuthenticatedUser = () => {
+
+    const [ { userAuth: { user } } ] = useStoreContext();
+
+    return user;
+
+}

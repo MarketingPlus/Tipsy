@@ -1,15 +1,11 @@
-const path = require("path");
-const router = require("express").Router();
-const apiRoutes = require("./api");
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const util = require("util");
 
-router.use("/api", require("./authentication"));
+const passwordHash = require("../config/passwordHash");
 
-//api routes
-router.use("/api", apiRoutes);
-
-//react route
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
-
-module.exports = router;
+// Get middleware
+const authenticateUser = require("./middleware/authenticateUser");
+const validateBodyWith = require("./middleware/validateBodyWith");

@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "name": "Vodka",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit. That basically means that vodka is supposed to be virtually tasteless, odorless, and clear (like water) in color.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "cautions": "WHEAT"
+    },
+    {
+        "id": 2,
+        "name": "Gin",
+        "select": "Gin is a clear spirit and it mixes well with other ingredients. But what makes gin different is that it’s flavored with various botanicals to give gin its distinct taste.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 110", 
+        "sugar": "Sugars: 0",
+        "contains": "NONE"
+    },
+    {
+        "id": 1,
+        "name": "Vodka",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "contains": "WHEAT"
+    },
+    {
+        "id": 1,
+        "name": "Vodka",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "contains": "WHEAT"
+    },
+    {
+        "id": 1,
+        "name": "Vodka",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "contains": "WHEAT"
+    },
+    {
+        "id": 1,
+        "name": "Vodka",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "contains": "WHEAT"
+    },
+    {
+        "id": 1,
+        "name": "Vodka",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "contains": "WHEAT"
+    }
+]

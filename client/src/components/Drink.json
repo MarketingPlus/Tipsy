@@ -22,19 +22,19 @@
         "contains": "NONE"
     },
     {
-        "id": 1,
-        "name": "Vodka",
-        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "id": 3,
+        "name": "Whiskey",
+        "select": "whisk(e)y is a spirit that’s distilled from fermented grains. Whisk(e)y is different to vodka because whisk(e)y is aged/matured in wooden barrels for a period of time after distillation.",
         "season": ["July"],
         "heart": "/assets/",
         "image": "/assets/",
-        "calories": "Calories: 115", 
+        "calories": "Calories: 70", 
         "sugar": "Sugars: 0",
-        "contains": "WHEAT"
+        "contains": "WHEAT, GLUTEN, SULFITES"
     },
     {
-        "id": 1,
-        "name": "Vodka",
+        "id": 4,
+        "name": "Scotch",
         "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
         "season": ["July"],
         "heart": "/assets/",

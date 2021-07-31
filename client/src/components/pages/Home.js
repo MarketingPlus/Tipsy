@@ -55,3 +55,19 @@ function Home() {
         setdrinkSearch(value);
         console.log(drinkSearch);
       }
+
+      useEffect(() => {
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        const d = new Date();
+        const defaultMonth = monthNames[d.getMonth()];
+        console.log(defaultMonth);
+        const onSeason = Drink.filter(drink => { return drink.season.includes(month) });
+        if (month=="allSeason"){
+          setdrinkList(Drink)
+        } else {
+          setdrinkList(onSeason);
+        }
+        console.log(onSeason);
+    

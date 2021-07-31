@@ -80,3 +80,9 @@ function Home() {
         }
     
       }, [month,drinkSearch])
+
+      useEffect(() => {
+        console.log("Our user:", user)
+      }, [user])
+    
+      return (

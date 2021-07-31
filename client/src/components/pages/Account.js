@@ -19,4 +19,16 @@ const styles = {
     }
   }
 
+  function Account() {
+    const user = useAuthenticatedUser();
+    const userFavorite = Drink.filter(drink => {
+      if (user.favorites.includes(drink.name)) {
+        return drink
+      }
+    })
+  
+    console.log(userFavorite)
+
+
+
 export default Account;

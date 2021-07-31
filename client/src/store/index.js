@@ -6,3 +6,8 @@ import {
     SET_CURRENT_RECIPE,
     SET_FAVORITES,
 } from "./actions";
+
+const StoreContext = createContext({
+    userAuth: {},
+    recipe: null
+});

@@ -42,3 +42,10 @@ function Home() {
     const [drinkResult, setdrinkResult] = useState({});
     const [month, setMonth] = useState(defaultMonth);
     const [drinkList, setdrinkList] = useState(Drink);
+
+    const handleMonthChange = (event) => {
+        const { value } = event.target;
+        setMonth(value);
+        console.log(value);
+        setdrinkSearch("")
+      }

@@ -71,3 +71,12 @@ function Home() {
         }
         console.log(onSeason);
     
+        const selecteddrink = Drink.filter(drink => { return drink.name==drinkSearch });
+
+        if(drinkSearch=="allDrink"){
+          setdrinkResult(Drink)
+        } else {
+          setdrinkResult(selecteddrink)
+        }
+    
+      }, [month,drinkSearch])

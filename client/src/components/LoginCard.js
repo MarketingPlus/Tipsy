@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./login.css";
 import { useLogin } from "../utils/auth"
 import auth from "../utils/auth";
-import api from "../utils/register-api";
+import api from "../utils/registerApi";
 
 const styles = {
   button: {

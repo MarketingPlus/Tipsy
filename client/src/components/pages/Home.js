@@ -3,7 +3,6 @@ import Card from '../Card';
 import Drink from '../Drink.json';
 import { useStoreContext } from '../../store';
 import ItemOption from '../ItemOption';
-import calendar from '../../assets/calendar.png';
 import RapidApi from "../../utils/RapidApi";
 import {useAuthenticatedUser, useIsAuthenticated} from '../../utils/auth';
 
@@ -34,26 +33,27 @@ const styles = {
 
 function Home() {
   const user = useAuthenticatedUser();
-  const liqourNames = ["Vodka", "Brandy", "Scotch"
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ];
   const d = new Date();
-  const defaultliqour = "Vodka";
-  console.log(defaultliqour);
+  const defaultMonth = monthNames[d.getMonth()];
+  console.log(defaultMonth);
 
   const [drinkSearch, setdrinkSearch] = useState("");
   const [drinkResult, setdrinkResult] = useState({});
-  const [liqour, setliqour] = useState(defaultliqour);
+  const [month, setMonth] = useState(defaultMonth);
   const [drinkList, setdrinkList] = useState(Drink);
 
 
 
-  const handleliqourChange = (event) => {
+  const handleMonthChange = (event) => {
     const { value } = event.target;
-    setliqour(value);
+    setMonth(value);
     console.log(value);
     setdrinkSearch("")
-    // const onSeason = Drink.filter(drink => {return drink.season.includes(liqour)});
-    // // const onSeason = Drink.filter(drink => drink.season.includes(liqour));
+    // const onSeason = Drink.filter(drink => {return drink.season.includes(month)});
+    // // const onSeason = Drink.filter(drink => drink.season.includes(month));
     // setdrinkList(onSeason);
     // console.log(onSeason);
     // // console.log(drinkList);
@@ -72,12 +72,14 @@ function Home() {
   }
 
   useEffect(() => {
-    const liqourNames = ["Vodka", "Brandy", "Scotch"
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
     ];
     const d = new Date();
-    console.log(defaultliqour);
-    const onSeason = Drink.filter(drink => { return drink.season.includes(liqour) });
-    if (liqour=="allSeason"){
+    const defaultMonth = monthNames[d.getMonth()];
+    console.log(defaultMonth);
+    const onSeason = Drink.filter(drink => { return drink.season.includes(month) });
+    if (month=="allSeason"){
       setdrinkList(Drink)
     } else {
       setdrinkList(onSeason);
@@ -93,7 +95,7 @@ function Home() {
       setdrinkResult(selecteddrink)
     }
 
-  }, [liqour,drinkSearch])
+  }, [month,drinkSearch])
 
   useEffect(() => {
     console.log("Our user:", user)
@@ -110,16 +112,25 @@ function Home() {
                       
 
                    
-                      <select className='form-control selectpicker' id='all-Drink' style={styles.search2} onChange={handleliqourChange}>
+                      <select className='form-control selectpicker' id='all-Drink' style={styles.search2} onChange={handleMonthChange}>
                           
-                          <option value={defaultliqour} id="0" >   
+                          <option value={defaultMonth} id="0" >   
                           
-                          Current liqour {`(${defaultliqour})`}</option>
+                          Current Month {`(${defaultMonth})`}</option>
 
               {/* <option value="allSeason" id="13" href="#">All Season</option> */}
-              <option value="Vodka" id="1">Vodka</option>
-              <option value="Brandy" id="2">Brandy</option>
-              <option value="Scotch" id="3">Scotch</option>
+              <option value="January" id="1">January</option>
+              <option value="February" id="2">February</option>
+              <option value="March" id="3">March</option>
+              <option value="April" id="4">April</option>
+              <option value="May" id="5">May</option>
+              <option value="June" id="6">June</option>
+              <option value="July" id="7">July</option>
+              <option value="August" id="8">August</option>
+              <option value="September" id="9">September</option>
+              <option value="October" id="10">October</option>
+              <option value="November" id="11">November</option>
+              <option value="December" id="12">December</option>
             </select>
 
           </div>

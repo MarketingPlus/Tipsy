@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Vodka",
         "select": "Vodka is defined as a neutral-flavoured, clear spirit. That basically means that vodka is supposed to be virtually tasteless, odorless, and clear (like water) in color.",
-        "season": ["July"],
+        "season": ["Vodka"],
         "heart": "/assets/heart.png",
         "image": "/assets/",
         "calories": "Calories: 115", 

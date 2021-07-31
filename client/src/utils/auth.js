@@ -35,3 +35,75 @@ const applyAuthToken = token => {
         : api.setHeader( "Authorization", false );
 
 }
+
+export const useAuthTokenStore = () => {
+
+    const [ ,dispatch ] = useStoreContext();
+    const [ isDone, setIsDone ] = useState(false);
+
+    useEffect(() => {
+
+        if( isDone ) return;
+
+        // Check for token to keep user logged in
+        if ( !localStorage.jwtToken ) {
+            setIsDone( true );
+            return;
+        }
+            
+        // Set auth token header auth
+        const tokenString = localStorage.jwtToken;
+        
+        // Decode token and get user info and exp
+        const token = jwt_decode(tokenString);
+        
+        // Check for expired token
+        const currentTime = Date.now() / 1000; // to get in milliseconds
+
+        const invalidate = () => {
+
+            // Logout user
+            setAuthToken( false );
+            dispatch({ type: LOGOUT_USER });
+
+        }
+        
+        if (token.exp < currentTime) {
+            
+            invalidate();
+
+        } else {
+
+            applyAuthToken(tokenString);
+
+            const authCheck = async () => {
+
+                let user;
+
+                try {
+
+                    const { data } = await api.authenticated();
+
+                    user = data;
+
+                } catch(res) {
+                    
+                    invalidate();
+
+                }
+
+                if( user ) dispatch({ type: LOGIN_USER, payload: { token, user } });
+
+                setIsDone( true );
+
+            }
+
+            authCheck();
+
+        }
+
+    }, [ dispatch, isDone ])
+
+    return isDone;
+
+}

@@ -18,3 +18,26 @@ const App = () => {
   const isAuthenticated = useIsAuthenticated();
   // Use the hook to reauthenticate stored tokens.
   useAuthTokenStore();
+
+  return (
+
+    <div>
+      <Router>
+        <Nav />
+        <Logo />
+        <div>
+          <Switch>
+            
+          <Route exact path='/' component={Home} />
+          <PrivateRoute exact path = "/account" redirectTo="/login" component= {Account} />
+          <Route exact path={'/recipe'} component={Recipe} />
+          <GuestRoute exact path='/login' redirectTo="/account" component={Login} />
+          </Switch>
+        </div>
+        <Footer />
+      </Router>
+    </div>
+  )
+
+}
+export default App;

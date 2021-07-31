@@ -86,3 +86,45 @@ router.post("/user/authenticated", authenticateUser, (req, res) => {
     }
   
   });
+
+  /**
+ * Creates a new user for authentication
+ */
+router.post("/user/register", validateBodyWith( registerValidator ), async (req, res) => {
+
+    try {
+  
+      const { email, password } = req.body;
+  
+      const user = await User.findOne({ email });
+  
+      if (user) {
+        // User already exists error.
+        return res.status(400).json({ email: "Email already exists." });
+      }
+  
+      const newUser = new User({
+        email,
+        password: await passwordHash( password )
+      });
+  
+      await newUser.save();
+  
+      const {
+        password: encryptedPassword,
+        // User object without the password
+        ...secureUser
+      } = newUser._doc;
+  
+      res.json( secureUser );
+  
+    } catch( err ) {
+  
+      console.log(err);
+      res.status(500).json({ default: "Something went wrong creating your account." });
+  
+    }
+  
+  });
+  
+  module.exports = router;

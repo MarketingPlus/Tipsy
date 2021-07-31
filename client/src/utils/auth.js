@@ -123,3 +123,34 @@ export const useAuthenticatedUser = () => {
     return user;
 
 }
+
+export const useLogin = () => {
+
+    const [ ,dispatch ] = useStoreContext();
+
+    return async ( credentials ) => {
+    
+        const { data: { token: tokenString, user } } = await api.login( credentials );
+
+        const token = setAuthToken( tokenString );
+
+        dispatch({ type: LOGIN_USER, payload: { token, user } });
+
+        return token;
+        
+    }
+    
+}
+
+export const useLogout = () => {
+
+    const [ ,dispatch ] = useStoreContext();
+
+    return () => {
+
+        setAuthToken( false );
+        dispatch({ type: LOGOUT_USER });
+
+    }
+    
+}

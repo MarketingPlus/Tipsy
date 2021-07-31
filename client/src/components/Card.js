@@ -69,4 +69,64 @@ const Card = (props) => {
         : process.env.PUBLIC_URL + "/assets/heart.png"
     }
 
+    return (
+        <div className="col mb-4">
+          <div className="card h-100 ">
+            <span onClick={addIntoUser}>
+              <a href="#" 
+                          className="badge float-right"
+                      style={styles.badge}>
+                <img src={getHeartIcon()} style={styles.heart} />
+              </a>
+            </span>
     
+            <img
+              src={process.env.PUBLIC_URL + props.image}
+              className="card-img-top"
+              alt={props.title} />
+            <div className="card-body">
+    
+              {
+            // }<h5 className="card-title">{foodResult.food? foodResult.food.label:("")}</h5>
+            }<h5 className="card-title text-center" >
+              {/* <a rel="noreferrer noopener"href={"https://en.wikipedia.org/w/api.php?action=opensearch&search="+props.title+"&limit=1&format=json&origin=*"}>{props.title}</a> */}
+                          <a target="_blank" rel="noreferrer noopener" href={"https://en.wikipedia.org/wiki/" + props.title} style={styles.link}>{props.title}
+                          
+                          <span>
+                              <img
+                                  src={process.env.PUBLIC_URL + '/assets/resize.png'}
+                                  alt='Open in new tab'
+                                  style={styles.expand}/>
+                          </span></a>
+                          
+                          
+            </h5>
+                
+              <p className="card-text">
+                {props.select}
+              </p>
+                <div style={styles.option}>
+              <p className="card-text" style={styles.option}>
+                <small className="text-muted" style={styles.option}>
+                                  <hr style={styles.hr}/><strong>Nutritional Value: </strong><br />
+                                  {props.calories} <br />
+                                  {props.sugar} <br />
+                                  {props.contains}<hr/>
+                </small></p></div>
+              <div className="card-body text-center">
+    
+                          <button onClick={getRecipe} style={styles.button} className="btn btn-primary btn-block card-link">
+                  View Recipes
+                                            </button>
+                {/* <a onClick= {getRecipe} href='/recipe' className="btn btn-primary btn-block card-link">
+    
+                  View Recipes
+                                            </a> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    };
+    
+    export default Card;

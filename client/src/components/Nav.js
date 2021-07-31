@@ -19,3 +19,10 @@ const styles = {
         color: "#fff"
     }
 };
+
+function Nav() {
+    const location = useLocation();
+    const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+    const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed)
+    

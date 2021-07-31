@@ -38,3 +38,19 @@ const reducer = ( state, { type, payload } ) => {
     }
 
 }
+
+export const StoreProvider = ( { children } ) => {
+
+    const [ store, dispatch ] = useReducer( reducer, {
+        userAuth: {}
+    } );
+
+    return <Provider value={[store, dispatch]}>{ children }</Provider>
+
+}
+
+export const useStoreContext = () => {
+
+    return useContext( StoreContext );
+
+}

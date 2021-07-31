@@ -29,6 +29,31 @@ const styles = {
   
     console.log(userFavorite)
 
-
-
-export default Account;
+    return (
+        <div className="container mx-auto">
+          <p className="display-4">
+            Favorite drinks
+          </p>
+          <hr style={styles.hr}/>
+        <div className="row row-cols-1 row-cols-md-3">
+          {userFavorite.map(item => (
+            <Card
+              id={item.id}
+              title={item.name}
+              select={item.select}
+              image={item.image}
+              calories={item.calories}
+              sugar={item.sugar}
+              contains={item.contains}
+              isFavorited={user && user.favorites.includes(item.name)}
+              season={item.season} />
+          ))}
+          </div>
+          <hr style={styles.hr}/>
+          <button className="btn btn-danger float-right" style={styles.button} onClick={useLogout()}>Logout</button><br/>
+          </div>
+      )
+      
+    }
+    
+    export default Account;

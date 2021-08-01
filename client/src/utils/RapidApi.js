@@ -1,3 +1,7 @@
+import axios from "axios";
+import jquery from "jquery";
+
+
 export default {
   getIngredient: function (query, callback) {
     fetch(`https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=${query}`, {

@@ -33,74 +33,74 @@ const styles = {
 };
 
 const Card = (props) => {
-    const [ ,dispatch ] = useStoreContext();
-    const history = useHistory();
-      const user = useAuthenticatedUser();
-    
+  const [ ,dispatch ] = useStoreContext();
+  const history = useHistory();
+    const user = useAuthenticatedUser();
   
-    useEffect(() =>{
-    // RapidApi.getIngredient(props.title,setFoodResult);
-    },[])
-  
-    const getRecipe = async event =>{
-      // Start loading indicator here
-      const recipe  = await recipeApi.getRecipes(props.title);
-      // Stop loading indicator here
-      dispatch({ type: SET_CURRENT_RECIPE, payload: recipe });
-      // Also save to local storage so we can handle refresh on recipe card.
-      history.push("/recipe")
-    }
-  
-    const addIntoUser = async (event)=>{
-      event.preventDefault();
-      const id = user._id;
-      const title = props.title;
-      try {
-        const { data: newFavorites } = await apiCalls.addFavorite({id:id,title:title});
-        dispatch({ type: SET_FAVORITES, payload: newFavorites });
-      } catch (err) {
-        console.error(err) // TODO: Handle this with a message to the user.
-      }
-    }
-  
-    const getHeartIcon = () => {
-      return props.isFavorited
-        ? process.env.PUBLIC_URL + "/assets/heartFilled.png"
-        : process.env.PUBLIC_URL + "/assets/heart.png"
-    }
 
-    return (
-        <div className="col mb-4">
-          <div className="card h-100 ">
-            <span onClick={addIntoUser}>
-              <a href="#" 
-                          className="badge float-right"
-                      style={styles.badge}>
-                <img src={getHeartIcon()} style={styles.heart} />
-              </a>
-            </span>
-    
-            <img
-              src={process.env.PUBLIC_URL + props.image}
-              className="card-img-top"
-              alt={props.title} />
-            <div className="card-body">
-    
-              {
-            // }<h5 className="card-title">{foodResult.food? foodResult.food.label:("")}</h5>
-            }<h5 className="card-title text-center" >
-              {/* <a rel="noreferrer noopener"href={"https://en.wikipedia.org/w/api.php?action=opensearch&search="+props.title+"&limit=1&format=json&origin=*"}>{props.title}</a> */}
-                          <a target="_blank" rel="noreferrer noopener" href={"https://en.wikipedia.org/wiki/" + props.title} style={styles.link}>{props.title}
-                          
-                          <span>
-                              <img
-                                  src={process.env.PUBLIC_URL + '/assets/resize.png'}
-                                  alt='Open in new tab'
-                                  style={styles.expand}/>
-                          </span></a>
-                          
-                          
-            </h5>
+  useEffect(() =>{
+  // RapidApi.getIngredient(props.title,setFoodResult);
+  },[])
+
+  const getRecipe = async event =>{
+    // Start loading indicator here
+    const recipe  = await recipeApi.getRecipes(props.title);
+    // Stop loading indicator here
+    dispatch({ type: SET_CURRENT_RECIPE, payload: recipe });
+    // Also save to local storage so we can handle refresh on recipe card.
+    history.push("/recipe")
+  }
+
+  const addIntoUser = async (event)=>{
+    event.preventDefault();
+    const id = user._id;
+    const title = props.title;
+    try {
+      const { data: newFavorites } = await apiCalls.addFavorite({id:id,title:title});
+      dispatch({ type: SET_FAVORITES, payload: newFavorites });
+    } catch (err) {
+      console.error(err) // TODO: Handle this with a message to the user.
+    }
+  }
+
+  const getHeartIcon = () => {
+    return props.isFavorited
+      ? process.env.PUBLIC_URL + "/assets/heartFilled.png"
+      : process.env.PUBLIC_URL + "/assets/heart.png"
+  }
+
+  return (
+    <div className="col mb-4">
+      <div className="card h-100 ">
+        <span onClick={addIntoUser}>
+          <a href="#" 
+                      className="badge float-right"
+                  style={styles.badge}>
+            <img src={getHeartIcon()} style={styles.heart} />
+          </a>
+        </span>
+
+        <img
+          src={process.env.PUBLIC_URL + props.image}
+          className="card-img-top"
+          alt={props.title} />
+        <div className="card-body">
+
+          {
+        // }<h5 className="card-title">{foodResult.food? foodResult.food.label:("")}</h5>
+        }<h5 className="card-title text-center" >
+          {/* <a rel="noreferrer noopener"href={"https://en.wikipedia.org/w/api.php?action=opensearch&search="+props.title+"&limit=1&format=json&origin=*"}>{props.title}</a> */}
+                      <a target="_blank" rel="noreferrer noopener" href={"https://en.wikipedia.org/wiki/" + props.title} style={styles.link}>{props.title}
+                      
+                      <span>
+                          <img
+                              src={process.env.PUBLIC_URL + '/assets/resize.png'}
+                              alt='Open in new tab'
+                              style={styles.expand}/>
+                      </span></a>
+                      
+                      
+        </h5>
                 
               <p className="card-text">
                 {props.select}

@@ -29,102 +29,102 @@ router.post("/user/authenticated", authenticateUser, (req, res) => {
  * Log in an existing user by signing and returning a secure JWT token
  * for the client application to store and include with requests.
  */
- router.post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
+router.post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
 
-    const { email, password } = req.body;
-    console.log("login routes is being called")
-    try {
-  
-      const user =
-        await User
-          .findOne({ email });
-  
-      if (!user) {
-        // User not found by email.
-        return res.status(404).json({ default: "Email or password is invalid." });
-      }
-  
-      const {
-        password: encryptedPassword,
-        // User object without the password
-        ...secureUser
-      } = user._doc;
-  
-      const isMatch = await bcrypt.compare( password, encryptedPassword );
-      
-      if( !isMatch ) {
-        // User's password is invalid.
-        return res.status(404).json({ default: "Email or password is invalid." });
-      }
-  
-      const payload = {
-        id: secureUser._id,
-        email: secureUser.email
-      };
-  
-      // Create a signed JWT token to send back to the client for reauthentication.
-      const token = await jwtSign(
-        payload,
-        process.env.JWT_SECRET,
-        {
-          expiresIn: 31556926 // 1 year in seconds
-        }
-      );
-  
-      return res.json({
-        success: true,
-        token: "Bearer " + token,
-        user: secureUser
-      })
-    
-  
-    } catch( err ) {
-  
-      console.log(err);
-      res.status(500).json({ default: "Something went wrong trying to log in." });
-  
+  const { email, password } = req.body;
+  console.log("login routes is being called")
+  try {
+
+    const user =
+      await User
+        .findOne({ email });
+
+    if (!user) {
+      // User not found by email.
+      return res.status(404).json({ default: "Email or password is invalid." });
     }
-  
-  });
 
-  /**
+    const {
+      password: encryptedPassword,
+      // User object without the password
+      ...secureUser
+    } = user._doc;
+
+    const isMatch = await bcrypt.compare( password, encryptedPassword );
+    
+    if( !isMatch ) {
+      // User's password is invalid.
+      return res.status(404).json({ default: "Email or password is invalid." });
+    }
+
+    const payload = {
+      id: secureUser._id,
+      email: secureUser.email
+    };
+
+    // Create a signed JWT token to send back to the client for reauthentication.
+    const token = await jwtSign(
+      payload,
+      process.env.JWT_SECRET,
+      {
+        expiresIn: 31556926 // 1 year in seconds
+      }
+    );
+
+    return res.json({
+      success: true,
+      token: "Bearer " + token,
+      user: secureUser
+    })
+  
+
+  } catch( err ) {
+
+    console.log(err);
+    res.status(500).json({ default: "Something went wrong trying to log in." });
+
+  }
+
+});
+
+/**
  * Creates a new user for authentication
  */
 router.post("/user/register", validateBodyWith( registerValidator ), async (req, res) => {
 
-    try {
-  
-      const { email, password } = req.body;
-  
-      const user = await User.findOne({ email });
-  
-      if (user) {
-        // User already exists error.
-        return res.status(400).json({ email: "Email already exists." });
-      }
-  
-      const newUser = new User({
-        email,
-        password: await passwordHash( password )
-      });
-  
-      await newUser.save();
-  
-      const {
-        password: encryptedPassword,
-        // User object without the password
-        ...secureUser
-      } = newUser._doc;
-  
-      res.json( secureUser );
-  
-    } catch( err ) {
-  
-      console.log(err);
-      res.status(500).json({ default: "Something went wrong creating your account." });
-  
+  try {
+
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (user) {
+      // User already exists error.
+      return res.status(400).json({ email: "Email already exists." });
     }
-  
-  });
-  
-  module.exports = router;
+
+    const newUser = new User({
+      email,
+      password: await passwordHash( password )
+    });
+
+    await newUser.save();
+
+    const {
+      password: encryptedPassword,
+      // User object without the password
+      ...secureUser
+    } = newUser._doc;
+
+    res.json( secureUser );
+
+  } catch( err ) {
+
+    console.log(err);
+    res.status(500).json({ default: "Something went wrong creating your account." });
+
+  }
+
+});
+
+module.exports = router;

@@ -21,3 +21,5 @@ const PrivateRoute = ({ component: Component, children, redirectTo = "/", ...pro
     );
 
 }
+
+export default PrivateRoute;

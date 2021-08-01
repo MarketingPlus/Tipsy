@@ -105,6 +105,9 @@ const Card = (props) => {
               <p className="card-text">
                 {props.select}
               </p>
+              <p className="card-text">
+               {props.type}
+              </p>
                 <div style={styles.option}>
               <p className="card-text" style={styles.option}>
                 <small className="text-muted" style={styles.option}>

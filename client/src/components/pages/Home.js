@@ -87,7 +87,7 @@ function Home() {
     console.log(onSeason);
 
 
-    const selecteddrink = Drink.filter(drink => { return drink.name==drinkSearch });
+    const selecteddrink = Drink.filter(drink => { return drink.type==drinkSearch });
 
     if(drinkSearch=="allDrink"){
       setdrinkResult(Drink)
@@ -105,7 +105,7 @@ function Home() {
     <div className="container mx-auto">
 
       <form className="text-center mx-auto">
-        <p className="display-4" style={styles.head}>Your favorite Drink, in season.</p><br/>
+        <p className="display-4" style={styles.head}>Your favorite Drink, with Style</p><br/>
         <div className="form-row mx-auto">
                   <div className="col-md-6 col-lg-6 col-xl-6 form-group mx-auto">
 
@@ -138,17 +138,19 @@ function Home() {
           <div className="col-md-6 col-lg-6 col-xl-6 form-group mx-auto">
 
             <select className='form-control' id='all-Drink' onChange={handleInputChange} style={styles.search}>
-              <option value="allDrink"id="0">All Drink</option>
-
-              {Drink.map(item => (
-                <ItemOption
-                  id={item.id}
-                  name={item.name}
-                  value={item.name}
-                  key={item.name}
-                />))}
-
-
+              <option value="allDrink"id="0">All Beverages</option>
+              <option value="Vodka" id="1">Vodka</option>
+              <option value="Gin" id="2">Gin</option>
+              <option value="Whiskey" id="3">Whiskey</option>
+              <option value="Scotch" id="4">Scotch</option>
+              <option value="Beer" id="5">Beer</option>
+              <option value="Wine" id="6">Wine</option>
+              <option value="Tequila" id="7">Tequila</option>
+              <option value="Rum" id="8">Rum</option>
+              <option value="Cognac" id="9">Cognac & Brandy</option>
+              <option value="Liqueurs" id="10">Liqueurs</option>
+              <option value="Aperitifs" id="11">Aperitifs</option>
+              <option value="Bourbon" id="12">Bourbon</option>
             </select>
 
           </div>
@@ -172,6 +174,7 @@ function Home() {
                 calories={item.calories}
                 sugar={item.sugar}
                 contains={item.contains}
+                type={item.type}
                 isFavorited={user && user.favorites.includes(item.name)}
                 season={item.season}/>)))
           
@@ -185,6 +188,7 @@ function Home() {
                   calories={item.calories}
                   sugar={item.sugar}
                   contains={item.contains}
+                  type={item.type}
                   isFavorited={user && user.favorites.includes(item.name)}
                   season={item.season}/>
           ))

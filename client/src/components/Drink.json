@@ -1,13 +1,14 @@
 [
     {
         "id": 1,
-        "name": "Vodka",
+        "name": "Cîroc",
         "select": "Vodka is defined as a neutral-flavoured, clear spirit. That basically means that vodka is supposed to be virtually tasteless, odorless, and clear (like water) in color.",
-        "season": ["Vodka"],
+        "season": ["July"],
         "heart": "/assets/heart.png",
-        "image": "/assets/",
+        "image": "/assets/ciroc.png",
         "calories": "Calories: 115", 
-        "sugar": "Sugars: 0",
+        "sugar": "Sugars: 0",        
+        "type": "Vodka",
         "cautions": "Contains Warning: WHEAT"
     },
     {
@@ -19,6 +20,7 @@
         "image": "/assets/",
         "calories": "Calories: 110", 
         "sugar": "Sugars: 0",
+        "type": "Gin",
         "contains": "Contains Warning: NONE"
     },
     {
@@ -27,9 +29,10 @@
         "select": "whisk(e)y is a spirit that’s distilled from fermented grains. Whisk(e)y is different to vodka because whisk(e)y is aged/matured in wooden barrels for a period of time after distillation.",
         "season": ["July"],
         "heart": "/assets/heart.png",
-        "image": "/assets/",
+        "image": "/assets/fireball.png",
         "calories": "Calories: 70", 
         "sugar": "Sugars: 0",
+        "type": "Whiskey",
         "contains": "Contains Warning: WHEAT, GLUTEN, SULFITES"
     },
     {
@@ -41,10 +44,35 @@
         "image": "/assets/",
         "calories": "Calories: 115", 
         "sugar": "Sugars: 0",
+        "type": "Scotch",
         "contains": "Contains Warning: WHEAT"
     },
     {
-        "id": 1,
+        "id": 5,
+        "name": "Beer",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/heart.png",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "type": "Beer",
+        "contains": "Contains Warning: WHEAT"
+    },
+    {
+        "id": 6,
+        "name": "Wine",
+        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
+        "season": ["July"],
+        "heart": "/assets/heart.png",
+        "image": "/assets/",
+        "calories": "Calories: 115", 
+        "sugar": "Sugars: 0",
+        "type": "Wine",
+        "contains": "Contains Warning: WHEAT"
+    },
+    {
+        "id": 7,
         "name": "Vodka",
         "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
         "season": ["July"],
@@ -52,28 +80,7 @@
         "image": "/assets/",
         "calories": "Calories: 115", 
         "sugar": "Sugars: 0",
-        "contains": "Contains Warning: WHEAT"
-    },
-    {
-        "id": 1,
-        "name": "Vodka",
-        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
-        "season": ["July"],
-        "heart": "/assets/heart.png",
-        "image": "/assets/",
-        "calories": "Calories: 115", 
-        "sugar": "Sugars: 0",
-        "contains": "Contains Warning: WHEAT"
-    },
-    {
-        "id": 1,
-        "name": "Vodka",
-        "select": "Vodka is defined as a neutral-flavoured, clear spirit.",
-        "season": ["July"],
-        "heart": "/assets/heart.png",
-        "image": "/assets/",
-        "calories": "Calories: 115", 
-        "sugar": "Sugars: 0",
+        "type": "Vodka",
         "contains": "Contains Warning: WHEAT"
     }
 ]

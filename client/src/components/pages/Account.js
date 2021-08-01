@@ -37,15 +37,18 @@ function Account() {
     <div className="row row-cols-1 row-cols-md-3">
       {userFavorite.map(item => (
         <Card
-          id={item.id}
-          title={item.name}
-          select={item.select}
-          image={item.image}
-          calories={item.calories}
-          sugar={item.sugar}
-          contains={item.contains}
-          isFavorited={user && user.favorites.includes(item.name)}
-          season={item.season} />
+        id={item.id}
+        title={item.name}
+        select={item.select}
+        image={item.image}
+        calories={item.calories}
+        sugar={item.sugar}
+        contains={item.contains}
+        type={item.type}
+        standards={item.standards}
+        volume={item.volume}
+        isFavorited={user && user.favorites.includes(item.name)}
+        season={item.season} />
       ))}
       </div>
       <hr style={styles.hr}/>

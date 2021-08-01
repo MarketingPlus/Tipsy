@@ -79,7 +79,7 @@ function Home() {
     const defaultMonth = monthNames[d.getMonth()];
     console.log(defaultMonth);
     const onSeason = Drink.filter(drink => { return drink.season.includes(month) });
-    if (month=="allSeason"){
+    if (month==="allSeason"){
       setdrinkList(Drink)
     } else {
       setdrinkList(onSeason);
@@ -87,9 +87,9 @@ function Home() {
     console.log(onSeason);
 
 
-    const selecteddrink = Drink.filter(drink => { return drink.type==drinkSearch });
+    const selecteddrink = Drink.filter(drink => { return drink.type===drinkSearch });
 
-    if(drinkSearch=="allDrink"){
+    if(drinkSearch==="allDrink"){
       setdrinkResult(Drink)
     } else {
       setdrinkResult(selecteddrink)

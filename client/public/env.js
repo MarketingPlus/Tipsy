@@ -1,3 +1,2 @@
 window.env = {
-git
 };

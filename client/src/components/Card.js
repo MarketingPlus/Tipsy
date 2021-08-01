@@ -113,8 +113,8 @@ const Card = (props) => {
                 <small className="text-muted" style={styles.option}>
                                   <hr style={styles.hr}/><strong>Nutritional Value: </strong><br />
                                   {props.calories} <br />
-                                  {props.sugar} <br />
-                                  {props.contains}<hr/>
+                                  {props.standards} <br />
+                                  {props.volume} <hr/>
                 </small></p></div>
               <div className="card-body text-center">
     

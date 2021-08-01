@@ -142,15 +142,14 @@ function Home() {
               <option value="Vodka" id="1">Vodka</option>
               <option value="Gin" id="2">Gin</option>
               <option value="Whiskey" id="3">Whiskey</option>
-              <option value="Scotch" id="4">Scotch</option>
-              <option value="Beer" id="5">Beer</option>
-              <option value="Wine" id="6">Wine</option>
-              <option value="Tequila" id="7">Tequila</option>
-              <option value="Rum" id="8">Rum</option>
-              <option value="Cognac" id="9">Cognac & Brandy</option>
-              <option value="Liqueurs" id="10">Liqueurs</option>
-              <option value="Aperitifs" id="11">Aperitifs</option>
-              <option value="Bourbon" id="12">Bourbon</option>
+              <option value="Beer" id="4">Beer</option>
+              <option value="Wine" id="5">Wine</option>
+              <option value="Tequila" id="6">Tequila</option>
+              <option value="Rum" id="7">Rum</option>
+              <option value="Cognac" id="8">Cognac & Brandy</option>
+              <option value="Liqueurs" id="9">Liqueurs</option>
+              <option value="Aperitifs" id="10">Aperitifs</option>
+              <option value="Bourbon" id="11">Bourbon</option>
             </select>
 
           </div>
@@ -175,6 +174,8 @@ function Home() {
                 sugar={item.sugar}
                 contains={item.contains}
                 type={item.type}
+                standards={item.standards}
+                volume={item.volume}
                 isFavorited={user && user.favorites.includes(item.name)}
                 season={item.season}/>)))
           
@@ -189,6 +190,8 @@ function Home() {
                   sugar={item.sugar}
                   contains={item.contains}
                   type={item.type}
+                  standards={item.standards}
+                  volume={item.volume}
                   isFavorited={user && user.favorites.includes(item.name)}
                   season={item.season}/>
           ))

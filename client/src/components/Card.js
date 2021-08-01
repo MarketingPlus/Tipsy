@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import RapidApi from "../utils/RapidApi";
+import React, { useEffect } from 'react';
 import { useStoreContext } from '../store';
 import { SET_CURRENT_RECIPE, SET_FAVORITES } from "../store/actions";
 import recipeApi from "../utils/recipeApi";

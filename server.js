@@ -15,7 +15,7 @@ app.use(passport.initialize());
 
 app.use("/api",require("./routes/authentication"));
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "dev") {
   app.use(express.static("client/build"));
 }
 

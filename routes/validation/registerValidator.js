@@ -1,4 +1,4 @@
-const validatorFactory = require("./validatorFactory");
+git aconst validatorFactory = require("./validatorFactory");
 
 const registerValidator = validatorFactory({
   email: { type: "email" },

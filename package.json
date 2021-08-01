@@ -9,6 +9,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fastest-validator": "^1.10.1",
+    "http-proxy-middleware": "^2.0.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.12.2",
     "passport": "^0.4.1",
@@ -34,6 +35,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MarketingPlus/Tipsy/issues"
-  },
-  "homepage": "https://github.com/MarketingPlus/Tipsy#readme"
+  }
 }

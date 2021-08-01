@@ -24,7 +24,7 @@ An application to discover new drinks, recipes and much more! you can find out m
 ## LINKS 🔗
 
 [REPOSITORY](https://github.com/MarketingPlus/Tipsy)
-[DEPLOYED](#)
+[DEPLOYED](https://enigmatic-cliffs-10818.herokuapp.com/)
 
 <a name="features"></a>
 

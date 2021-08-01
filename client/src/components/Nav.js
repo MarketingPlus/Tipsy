@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/tipsy-logo-white.svg';
 import Home from '../components/pages/Home'
+import LogoutButton from './LogoutButton';
 
 const styles = {
     nav: {

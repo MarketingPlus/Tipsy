@@ -38,7 +38,7 @@ class API {
       console.log(userData);
       console.log("------");
 
-        return this.axios.post("/api/user/register", userData);
+        return axios.post("/api/user/register", userData);
 
     }
 
@@ -52,13 +52,13 @@ class API {
      */
     login( userData ) {
 
-        return this.axios.post("/api/user/login", userData);
+        return axios.post("/api/user/login", userData);
 
     }
 
     authenticated() {
 
-        return this.axios.post("/api/user/authenticated");
+        return axios.post("/api/user/authenticated");
 
     }
 

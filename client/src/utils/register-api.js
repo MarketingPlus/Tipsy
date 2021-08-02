@@ -1,4 +1,5 @@
 import axios from "axios";
+import { response } from "express";
 
 class API {
 
@@ -38,7 +39,11 @@ class API {
       console.log(userData);
       console.log("------");
 
-        return this.axios.post("/api/user/register", userData);
+        return this.axios.post("/api/user/register", userData).then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.log(error.response)
+        });
 
     }
 
@@ -52,13 +57,21 @@ class API {
      */
     login( userData ) {
 
-        return this.axios.post("/api/user/login", userData);
+        return this.axios.post("/api/user/login", userData).then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.log(error.response)
+        });
 
     }
 
     authenticated() {
 
-        return this.axios.post("/api/user/authenticated");
+        return this.axios.post("/api/user/authenticated").then(response => {
+            console.log(response)
+        }).catch(error => {
+            console.log(error.response)
+        });
 
     }
 

@@ -53,7 +53,7 @@ const Card = (props) => {
 
   const addIntoUser = async (event)=>{
     event.preventDefault();
-    const id = user._id;
+    const id = user?._id;
     const title = props.title;
     try {
       const { data: newFavorites } = await apiCalls.addFavorite({id:id,title:title});

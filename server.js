@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(passport.initialize());
 
-app.use("/api",require("./routes/authentication"));
+app.use("/api",require("./routes/api/authentication"));
 app.use("/auth",validatorRoutes)
 app.use("/api", apiRoutes);
 

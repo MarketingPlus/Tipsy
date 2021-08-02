@@ -7,7 +7,7 @@ export default {
     fetch(`https://edamam-food-and-grocery-database.p.rapidapi.com/parser?ingr=${query}`, {
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": "d87419c118mshb0f8cda7a776ee5p16ad1ejsnd7e02d04c08b",
+        "x-rapidapi-key": "b774d95af5msha37639d641a1814p18e428jsnafa3fa0339da",
         "x-rapidapi-host": "edamam-food-and-grocery-database.p.rapidapi.com"
       }
     })

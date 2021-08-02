@@ -38,9 +38,7 @@ class API {
       console.log(userData);
       console.log("------");
 
-        return fetch("/api/user/register", userData {
-            method: 'POST'
-        });
+        return this.axios.post("/api/user/register", userData);
 
     }
 

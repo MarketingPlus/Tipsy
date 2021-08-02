@@ -5,6 +5,7 @@ passport.use( require("./config/jwtPassportStrategy") );
 const express = require("express");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const cors = require("cors")
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -14,6 +15,9 @@ app.use(express.json());
 app.use(passport.initialize());
 
 app.use("/api",require("./routes/authentication"));
+app.use("/auth",validatorRoutes)
+app.use("/api", apiRoutes);
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

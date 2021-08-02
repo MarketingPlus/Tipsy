@@ -4,22 +4,22 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const util = require("util");
 
-const passwordHash = require("../../config/passwordHash");
+const passwordHash = require("../config/passwordHash");
 
 // Get middleware
-const authenticateUser = require("../middleware/authenticateUser");
-const validateBodyWith = require("../middleware/validateBodyWith");
+const authenticateUser = require("./middleware/authenticateUser");
+const validateBodyWith = require("./middleware/validateBodyWith");
 
 // Data validators
-const { loginValidator, registerValidator } = require("../validation");
+const { loginValidator, registerValidator } = require("./validation");
 
 // Load User model
-const { User } = require("../../models");
+const { User } = require("../models");
 
 const jwtSign = util.promisify( jwt.sign );
 
 // Get the currently authenticated user
-router.post("/auth/authenticated", authenticateUser, (req, res) => {
+router.post("/user/authenticated", authenticateUser, (req, res) => {
 
   res.json( req.user );
 
@@ -29,7 +29,7 @@ router.post("/auth/authenticated", authenticateUser, (req, res) => {
  * Log in an existing user by signing and returning a secure JWT token
  * for the client application to store and include with requests.
  */
-router.post("/auth/login", validateBodyWith( loginValidator ), async (req, res) => {
+router.post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
 
   const { email, password } = req.body;
   console.log("login routes is being called")
@@ -90,7 +90,7 @@ router.post("/auth/login", validateBodyWith( loginValidator ), async (req, res) 
 /**
  * Creates a new user for authentication
  */
-router.post("/auth/register", validateBodyWith( registerValidator ), async (req, res) => {
+router.post("/user/register", validateBodyWith( registerValidator ), async (req, res) => {
 
   try {
 

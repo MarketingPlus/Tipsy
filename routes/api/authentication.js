@@ -29,7 +29,7 @@ router.post("/user/authenticated", authenticateUser, (req, res) => {
  * Log in an existing user by signing and returning a secure JWT token
  * for the client application to store and include with requests.
  */
-router.post("/auth/user/login", validateBodyWith( loginValidator ), async (req, res) => {
+router.post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
 
   const { email, password } = req.body;
   console.log("login routes is being called")
@@ -90,7 +90,7 @@ router.post("/auth/user/login", validateBodyWith( loginValidator ), async (req, 
 /**
  * Creates a new user for authentication
  */
-router.post("/auth/user/register", validateBodyWith( registerValidator ), async (req, res) => {
+router.post("/user/register", validateBodyWith( registerValidator ), async (req, res) => {
 
   try {
 

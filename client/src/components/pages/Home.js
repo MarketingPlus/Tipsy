@@ -166,6 +166,7 @@ function Home() {
         {(drinkSearch.length) ?(drinkResult.map(item => (
             <Card
                 id={item.id}
+                key={item.name}
                 title={item.name}
                 select={item.select}
                 image={item.image}
@@ -182,6 +183,7 @@ function Home() {
           (drinkList.map(item => (
             <Card
                   id={item.id}
+                  key={item.name}
                   title={item.name}
                   select={item.select}
                   image={item.image}

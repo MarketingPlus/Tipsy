@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = 'http://https://enigmatic-cliffs-10818.herokuapp.com/'
+axios.defaults.baseURL = 'process.env.APP_URL'
 
 class API {
 
@@ -39,7 +39,7 @@ class API {
       console.log(userData);
       console.log("------");
 
-        return this.axios.post("/user/register", userData);
+        return this.axios.post("/api/user/register", userData);
 
     }
 
@@ -53,13 +53,13 @@ class API {
      */
     login( userData ) {
 
-        return this.axios.post("/user/login", userData);
+        return this.axios.post("/api/user/login", userData);
 
     }
 
     authenticated() {
 
-        return this.axios.post("/user/authenticated");
+        return this.axios.post("/api/user/authenticated");
 
     }
 

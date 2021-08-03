@@ -7,13 +7,15 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "concurrently": "^6.0.0",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
-    "fastest-validator": "^1.10.1",
+    "fastest-validator": "^1.11.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.12.2",
+    "jwt-decode": "^3.1.2",
+    "mongoose": "^5.13.5",
     "passport": "^0.4.1",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -23,7 +25,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "seed": "cd server && npm run seed"
   },
   "repository": {
     "type": "git",

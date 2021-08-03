@@ -32,7 +32,7 @@ router.post("/user/authenticated", authenticateUser, (req, res) => {
 router.post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
 
   const { email, password } = req.body;
-
+  console.log("login routes is being called")
   try {
 
     const user =

@@ -1,12 +1,38 @@
 const router = require("express").Router();
 const UserController = require("../../controllers/UserController");
 const UserHelp = require("../../client/src/utils/register-api")
+const express = require("express");
+const router = express.Router();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const util = require("util");
 
-router.route("/addFavorite/:id")
-  .post(UserController.addFavorite);
+const passwordHash = require("../config/passwordHash");
 
-router.route("/user/login")
-    .post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
+// Get middleware
+const authenticateUser = require("./middleware/authenticateUser");
+const validateBodyWith = require("./middleware/validateBodyWith");
+
+// Data validators
+const { loginValidator, registerValidator } = require("./validation");
+
+// Load User model
+const { User } = require("../models");
+
+const jwtSign = util.promisify( jwt.sign );
+
+// Get the currently authenticated user
+router.post("/user/authenticated", authenticateUser, (req, res) => {
+
+  res.json( req.user );
+
+});
+
+/**
+ * Log in an existing user by signing and returning a secure JWT token
+ * for the client application to store and include with requests.
+ */
+router.post("/user/login", validateBodyWith( loginValidator ), async (req, res) => {
 
   const { email, password } = req.body;
   console.log("login routes is being called")
@@ -64,49 +90,47 @@ router.route("/user/login")
 
 });
 
-router.route("/user/register")
-    .post("/user/register", validateBodyWith( registerValidator ), async (req, res) => {
+/**
+ * Creates a new user for authentication
+ */
+router.post("/user/register", validateBodyWith( registerValidator ), async (req, res) => {
 
-    try {
-  
-      const { email, password } = req.body;
-  
-      const user = await User.findOne({ email });
-  
-      if (user) {
-        // User already exists error.
-        return res.status(400).json({ email: "Email already exists." });
-      }
-  
-      const newUser = new User({
-        email,
-        password: await passwordHash( password )
-      });
-  
-      await newUser.save();
-  
-      const {
-        password: encryptedPassword,
-        // User object without the password
-        ...secureUser
-      } = newUser._doc;
-  
-      res.json( secureUser );
-  
-    } catch( err ) {
-  
-      console.log(err);
-      res.status(500).json({ default: "Something went wrong creating your account." });
-  
+  try {
+
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (user) {
+      // User already exists error.
+      return res.status(400).json({ email: "Email already exists." });
     }
-  
-  });
 
-router.route("/user/authenticated")
-  .post("/user/authenticated", authenticateUser, (req, res) => {
+    const newUser = new User({
+      email,
+      password: await passwordHash( password )
+    });
 
-    res.json( req.user );
-  
-  });
+    await newUser.save();
+
+    const {
+      password: encryptedPassword,
+      // User object without the password
+      ...secureUser
+    } = newUser._doc;
+
+    res.json( secureUser );
+
+  } catch( err ) {
+
+    console.log(err);
+    res.status(500).json({ default: "Something went wrong creating your account." });
+
+  }
+
+});
+
+router.route("/addFavorite/:id")
+  .post(UserController.addFavorite);
 
 module.exports = router;

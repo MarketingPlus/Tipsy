@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../assets/Drink.png'
+import hero from '../assets/heart.png'
 
 
 const styles = {
